@@ -22,6 +22,14 @@ apps:
     command: certbot
     environment:
       PATH: "$SNAP/bin:$SNAP/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
+  renew:
+    command: certbot -q renew
+    daemon: oneshot
+    environment:
+      PATH: "$SNAP/bin:$SNAP/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
+    passthrough:
+        # Run approximately twice a day with randomization
+        timer: 00:00~24:00/2
 
 parts:
   python-augeas:
