@@ -37,6 +37,7 @@ parts:
     source: git://github.com/basak/python-augeas
     source-branch: snap
     python-version: python2
+    build-packages: [libaugeas0]
   certbot:
     plugin: python
     source: git://github.com/certbot/certbot
