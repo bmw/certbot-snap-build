@@ -1,5 +1,5 @@
 name: certbot
-version: 0.25.1
+version: 0.26.1
 summary: Automatically configure HTTPS using Let's Encrypt
 description: |
  The objective of Certbot, Let's Encrypt, and the ACME (Automated
@@ -41,13 +41,13 @@ parts:
   certbot:
     plugin: python
     source: git://github.com/certbot/certbot
-    source-tag: v0.25.1
+    source-tag: v0.26.1
     python-version: python2
     after: [python-augeas]
   certbot-nginx:
     plugin: python
     source: git://github.com/certbot/certbot
-    source-tag: v0.25.1
+    source-tag: v0.26.1
     source-subdir: certbot-nginx
     build-packages: [libaugeas-dev]
     stage-packages: [libaugeas0]
@@ -56,7 +56,7 @@ parts:
   certbot-apache:
     plugin: python
     source: git://github.com/certbot/certbot
-    source-tag: v0.25.1
+    source-tag: v0.26.1
     source-subdir: certbot-apache
     build-packages: [libaugeas-dev]
     stage-packages: [libaugeas0]
