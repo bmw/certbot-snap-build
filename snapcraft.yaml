@@ -39,13 +39,13 @@ parts:
     plugin: python
     source: git://github.com/basak/python-augeas
     source-branch: snap
-    python-version: python2
+    python-version: python3
     build-packages: [libaugeas0]
   certbot:
     plugin: python
     source: git://github.com/certbot/certbot
     source-branch: master
-    python-version: python2
+    python-version: python3
     after: [python-augeas]
   certbot-nginx:
     plugin: python
@@ -55,7 +55,7 @@ parts:
     build-packages: [libaugeas-dev]
     stage-packages: [libaugeas0]
     after: [certbot]
-    python-version: python2
+    python-version: python3
   certbot-apache:
     plugin: python
     source: git://github.com/certbot/certbot
@@ -64,4 +64,4 @@ parts:
     build-packages: [libaugeas-dev]
     stage-packages: [libaugeas0]
     after: [certbot]
-    python-version: python2
+    python-version: python3
