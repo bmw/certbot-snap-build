@@ -23,7 +23,8 @@ apps:
     command: certbot
     environment:
       PATH: "$SNAP/bin:$SNAP/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
-      AUGEAS_LENS_LIB: $SNAP/usr/share/augeas/lenses/dist
+      AUGEAS_LENS_LIB: "$SNAP/usr/share/augeas/lenses/dist"
+      LD_LIBRARY_PATH: "$SNAP/usr/lib/x86_64-linux-gnu/:$LD_LIBRARY_PATH"
   renew:
     command: certbot -q renew
     daemon: oneshot
@@ -35,25 +36,16 @@ apps:
         timer: 00:00~24:00/2
 
 parts:
-  python-augeas:
-    plugin: python
-    source: git://github.com/basak/python-augeas
-    source-branch: snap
-    python-version: python3
-    build-packages: [libaugeas0]
   certbot:
     plugin: python
     source: git://github.com/certbot/certbot
     source-branch: master
     python-version: python3
-    after: [python-augeas]
   certbot-nginx:
     plugin: python
     source: git://github.com/certbot/certbot
     source-branch: master
     source-subdir: certbot-nginx
-    build-packages: [libaugeas-dev]
-    stage-packages: [libaugeas0]
     after: [certbot]
     python-version: python3
   certbot-apache:
