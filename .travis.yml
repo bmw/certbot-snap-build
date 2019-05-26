@@ -9,6 +9,7 @@ addons:
     packages:
     - snapd
     - nginx-light
+    - ca-certificates
 services:
   - docker
 deploy:
