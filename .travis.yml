@@ -2,7 +2,7 @@ language: bash
 script:
   - docker run -v $(pwd):$(pwd) -t snapcore/snapcraft sh -c "apt-get update -qq && cd $(pwd) && snapcraft"
   - sudo snap install --dangerous --classic *.snap
-  - sudo bash test.bash
+  - sudo ./test.sh
 sudo: required
 addons:
   apt:
@@ -10,6 +10,7 @@ addons:
     - snapd
     - nginx-light
     - ca-certificates
+    - python3-venv
 services:
   - docker
 deploy:
