@@ -46,13 +46,17 @@ parts:
     plugin: python
     source: git://github.com/certbot/certbot
     source-branch: master
-    python-version: python3
+    build-packages: [libaugeas-dev]
+    stage-packages: [libaugeas0]
     after: [acme]
+    python-version: python3
   certbot-nginx:
     plugin: python
     source: git://github.com/certbot/certbot
     source-branch: master
     source-subdir: certbot-nginx
+    build-packages: [libaugeas-dev]
+    stage-packages: [libaugeas0]
     after: [certbot]
     python-version: python3
   certbot-apache:
