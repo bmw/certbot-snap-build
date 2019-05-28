@@ -10,7 +10,6 @@ addons:
     packages:
     - snapd
     - nginx-light
-    - ca-certificates
     - python3-venv
 services:
   - docker
