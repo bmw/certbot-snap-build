@@ -1,0 +1,6 @@
+.snapcraft
+parts
+prime
+stage
+*.snap
+certbot
