@@ -37,16 +37,27 @@ apps:
         timer: 00:00~24:00/2
 
 parts:
+  acme:
+    plugin: python
+    source: git://github.com/certbot/certbot
+    source-branch: master
+    source-subdir: acme
+    python-version: python3
   certbot:
     plugin: python
     source: git://github.com/certbot/certbot
     source-branch: master
+    build-packages: [libaugeas-dev]
+    stage-packages: [libaugeas0]
+    after: [acme]
     python-version: python3
   certbot-nginx:
     plugin: python
     source: git://github.com/certbot/certbot
     source-branch: master
     source-subdir: certbot-nginx
+    build-packages: [libaugeas-dev]
+    stage-packages: [libaugeas0]
     after: [certbot]
     python-version: python3
   certbot-apache:
