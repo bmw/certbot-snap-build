@@ -40,13 +40,13 @@ parts:
   acme:
     plugin: python
     source: git://github.com/certbot/certbot
-    source-branch: master
+    source-branch: v0.35.1
     source-subdir: acme
     python-version: python3
   certbot:
     plugin: python
     source: git://github.com/certbot/certbot
-    source-branch: master
+    source-branch: v0.35.1
     build-packages: [libaugeas-dev]
     stage-packages: [libaugeas0]
     after: [acme]
@@ -54,7 +54,7 @@ parts:
   certbot-nginx:
     plugin: python
     source: git://github.com/certbot/certbot
-    source-branch: master
+    source-branch: v0.35.1
     source-subdir: certbot-nginx
     build-packages: [libaugeas-dev]
     stage-packages: [libaugeas0]
@@ -63,7 +63,7 @@ parts:
   certbot-apache:
     plugin: python
     source: git://github.com/certbot/certbot
-    source-branch: master
+    source-branch: v0.35.1
     source-subdir: certbot-apache
     build-packages: [libaugeas-dev]
     stage-packages: [libaugeas0]
