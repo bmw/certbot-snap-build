@@ -39,7 +39,7 @@ apps:
 parts:
   python-augeas:
     plugin: python
-    source: git//github.com/hercules-team/python-augeas
+    source: git://github.com/hercules-team/python-augeas
     source-branch: v0.5.0
     python-version: python3
   acme:
