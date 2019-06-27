@@ -49,7 +49,7 @@ parts:
     source: certbot
     source-branch: master
     constraints: constraints.txt
+    python-version: python3
     build-packages: [libaugeas-dev]
     stage-packages: [libaugeas0]
-    python-packages: [acme]
-    python-version: python3
+    after: [acme]
