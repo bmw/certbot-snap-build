@@ -51,21 +51,3 @@ parts:
     stage-packages: [libaugeas0]
     python-packages: [acme, python-augeas==0.5.0]
     python-version: python3
-  certbot-nginx:
-    plugin: python
-    source: git://github.com/certbot/certbot
-    source-branch: v0.35.1
-    source-subdir: certbot-nginx
-    build-packages: [libaugeas-dev]
-    stage-packages: [libaugeas0]
-    python-packages: [certbot, python-augeas==0.5.0]
-    python-version: python3
-  certbot-apache:
-    plugin: python
-    source: git://github.com/certbot/certbot
-    source-branch: v0.35.1
-    source-subdir: certbot-apache
-    build-packages: [libaugeas-dev]
-    stage-packages: [libaugeas0]
-    python-packages: [certbot, python-augeas==0.5.0]
-    python-version: python3
