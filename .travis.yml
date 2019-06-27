@@ -1,6 +1,7 @@
 dist: xenial
 language: bash
 script:
+  - git clone https://github.com/certbot/certbot.git certbot --single-branch --depth=1
   - docker run -v $(pwd):$(pwd) -t snapcore/snapcraft sh -c "apt-get update -qq && cd $(pwd) && snapcraft"
   - sudo snap install --dangerous --classic *.snap
   - sudo bash test.sh

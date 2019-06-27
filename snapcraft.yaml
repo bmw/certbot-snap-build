@@ -39,15 +39,17 @@ apps:
 parts:
   acme:
     plugin: python
-    source: git://github.com/certbot/certbot
-    source-branch: v0.35.1
+    source: certbot
+    source-branch: master
     source-subdir: acme
+    constraints: certbot/letsencrypt-auto-source/pieces/dependency-requirements.txt
     python-version: python3
   certbot:
     plugin: python
-    source: git://github.com/certbot/certbot
-    source-branch: v0.35.1
+    source: certbot
+    source-branch: master
+    constraints: certbot/letsencrypt-auto-source/pieces/dependency-requirements.txt
     build-packages: [libaugeas-dev]
     stage-packages: [libaugeas0]
-    python-packages: [acme, python-augeas==0.5.0]
+    python-packages: [acme]
     python-version: python3
