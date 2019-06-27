@@ -42,13 +42,13 @@ parts:
     source: certbot
     source-branch: master
     source-subdir: acme
-    constraints: $SNAPCRAFT_PART_SRC/letsencrypt-auto-source/pieces/dependency-requirements.txt
+    constraints: constraints.txt
     python-version: python3
   certbot:
     plugin: python
     source: certbot
     source-branch: master
-    constraints: $SNAPCRAFT_PART_SRC/letsencrypt-auto-source/pieces/dependency-requirements.txt
+    constraints: constraints.txt
     build-packages: [libaugeas-dev]
     stage-packages: [libaugeas0]
     python-packages: [acme]
