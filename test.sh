@@ -1,7 +1,6 @@
 #!/bin/bash
 set -ex
 
-git clone https://github.com/certbot/certbot.git --single-branch --depth=1
 cd certbot
 
 python3 -m venv venv
