@@ -42,13 +42,13 @@ parts:
     source: certbot
     source-branch: master
     source-subdir: acme
-    constraints: constraints.txt
+    constraints: $SNAPCRAFT_PART_SRC/constraints.txt
     python-version: python3
   certbot:
     plugin: python
     source: certbot
     source-branch: master
-    constraints: constraints.txt
+    constraints: $SNAPCRAFT_PART_SRC/constraints.txt
     python-version: python3
     build-packages: [libaugeas-dev]
     stage-packages: [libaugeas0]
