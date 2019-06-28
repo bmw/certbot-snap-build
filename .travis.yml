@@ -1,7 +1,7 @@
 dist: xenial
 language: bash
 install:
-  - git clone https://github.com/certbot/certbot.git certbot --single-branch --depth=1
+  - git clone https://github.com/certbot/certbot.git certbot
   - certbot/tools/strip_hashes.py certbot/letsencrypt-auto-source/pieces/dependency-requirements.txt > certbot/constraints.txt
 script:
   - docker run -v $(pwd):$(pwd) -t snapcore/snapcraft sh -c "apt-get update -qq && apt-get install -qq git && cd $(pwd) && snapcraft"
