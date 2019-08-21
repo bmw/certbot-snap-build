@@ -2,7 +2,6 @@ name: certbot
 version: script
 version-script: cd parts/certbot/src && git describe|sed s/^v//
 summary: Automatically configure HTTPS using Let's Encrypt
-base: core18
 description: |
  The objective of Certbot, Let's Encrypt, and the ACME (Automated
  Certificate Management Environment) protocol is to make it possible
