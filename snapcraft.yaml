@@ -62,6 +62,6 @@ parts:
     plugin: python
     source: certbot
     source-subdir: certbot-nginx
-    constraints: [$SNAPCRAFT_PART_SRC/constraints.txt]
+    constraints: $SNAPCRAFT_PART_SRC/constraints.txt
     python-version: python3
     after: [certbot]
