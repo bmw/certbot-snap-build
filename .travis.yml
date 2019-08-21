@@ -1,10 +1,11 @@
 dist: xenial
 language: bash
 install:
-  - git clone https://github.com/certbot/certbot.git certbot
+  - EXPORT CERTBOT_VERSION=$(python3 get_latest_version.py)
+  - git clone https://github.com/certbot/certbot.git certbot --branch ${CERTBOT_VERSION}
   - certbot/tools/strip_hashes.py certbot/letsencrypt-auto-source/pieces/dependency-requirements.txt > certbot/constraints.txt
 script:
-  - docker run -v $(pwd):$(pwd) -t snapcore/snapcraft sh -c "apt-get update -qq && apt-get install -qq git && cd $(pwd) && snapcraft"
+  - docker run -v $(pwd):$(pwd) -t -e CERTBOT_VERSION=${CERTBOT_VERSION} snapcore/snapcraft sh -c "apt-get update -qq && apt-get install -qq git && cd $(pwd) && snapcraft"
   - sudo snap install --dangerous --classic *.snap
   - sudo bash test.sh
 sudo: required
@@ -14,13 +15,15 @@ addons:
     - snapd
     - nginx-light
     - python3-venv
+    - python3-requests
+    - python3-packaging
 services:
   - docker
 deploy:
   'on':
     branch: master
   provider: script
-  script: 
-    - openssl aes-256-cbc -K $encrypted_edc9d3b1405a_key -iv $encrypted_edc9d3b1405a_iv -in .snapcraft/travis_snapcraft.cfg -out .snapcraft/snapcraft.cfg -d
-    - docker run -v $(pwd):$(pwd) -t snapcore/snapcraft sh -c "cd $(pwd) && snapcraft push *.snap --release edge"
+  script: |
+    openssl aes-256-cbc -K $encrypted_edc9d3b1405a_key -iv $encrypted_edc9d3b1405a_iv -in .snapcraft/travis_snapcraft.cfg -out .snapcraft/snapcraft.cfg -d
+    docker run -v $(pwd):$(pwd) -t snapcore/snapcraft sh -c "cd $(pwd) && snapcraft push *.snap --release edge"
   skip_cleanup: true

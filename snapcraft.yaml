@@ -2,6 +2,7 @@ name: certbot
 version: script
 version-script: cd parts/certbot/src && git describe|sed s/^v//
 summary: Automatically configure HTTPS using Let's Encrypt
+base: core18
 description: |
  The objective of Certbot, Let's Encrypt, and the ACME (Automated
  Certificate Management Environment) protocol is to make it possible
@@ -40,14 +41,12 @@ parts:
   acme:
     plugin: python
     source: certbot
-    source-branch: master
     source-subdir: acme
     constraints: $SNAPCRAFT_PART_SRC/constraints.txt
     python-version: python3
   certbot:
     plugin: python
     source: certbot
-    source-branch: master
     constraints: $SNAPCRAFT_PART_SRC/constraints.txt
     python-version: python3
     python-packages:
@@ -56,7 +55,6 @@ parts:
   certbot-apache:
     plugin: python
     source: certbot
-    source-branch: master
     source-subdir: certbot-apache
     constraints: $SNAPCRAFT_PART_SRC/constraints.txt
     python-version: python3
