@@ -37,6 +37,12 @@ apps:
         timer: 00:00~24:00/2
 
 parts:
+  python-augeas:
+    plugin: python
+    source: git://github.com/basak/python-augeas
+    source-branch: snap
+    python-version: python3
+    build-packages: [libaugeas-dev, libaugeas0]
   acme:
     plugin: python
     source: certbot
@@ -55,8 +61,6 @@ parts:
     source-subdir: certbot-apache
     constraints: $SNAPCRAFT_PART_SRC/constraints.txt
     python-version: python3
-    build-packages: [libaugeas-dev]
-    stage-packages: [libaugeas0]
     after: [certbot]
   certbot-nginx:
     plugin: python
