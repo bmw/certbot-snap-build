@@ -42,7 +42,7 @@ parts:
     source: git://github.com/basak/python-augeas
     source-branch: snap
     python-version: python3
-    build-packages: [libaugeas-dev, libaugeas0]
+    build-packages: [libaugeas-dev]
   acme:
     plugin: python
     source: certbot
@@ -62,6 +62,12 @@ parts:
     constraints: $SNAPCRAFT_PART_SRC/constraints.txt
     python-version: python3
     after: [certbot]
+    filesets:
+      exclude-python-augeas:
+      - -lib/python*/site-packages/augeas.py
+    stage:
+      - $exclude-python-augeas
+    stage-packages: [libaugeas0]
   certbot-nginx:
     plugin: python
     source: certbot
