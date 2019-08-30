@@ -61,12 +61,7 @@ parts:
     source-subdir: certbot-apache
     constraints: $SNAPCRAFT_PART_SRC/constraints.txt
     python-version: python3
-    after: [certbot]
-    filesets:
-      exclude-python-augeas:
-      - -lib/python*/site-packages/augeas.py
-    stage:
-      - $exclude-python-augeas
+    after: [python-augeas, certbot]
     stage-packages: [libaugeas0]
   certbot-nginx:
     plugin: python
