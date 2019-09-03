@@ -17,6 +17,7 @@ description: |
    - Help you revoke the certificate if that ever becomes necessary.
 confinement: classic
 grade: devel
+base: core18
 
 apps:
   certbot:
