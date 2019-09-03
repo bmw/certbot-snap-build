@@ -1,6 +1,4 @@
 name: certbot
-version: script
-version-script: cd parts/certbot/src && git describe|sed s/^v//
 summary: Automatically configure HTTPS using Let's Encrypt
 description: |
  The objective of Certbot, Let's Encrypt, and the ACME (Automated
@@ -18,6 +16,7 @@ description: |
 confinement: classic
 grade: devel
 base: core18
+adopt-info: certbot
 
 apps:
   certbot:
@@ -56,6 +55,9 @@ parts:
     constraints: [$SNAPCRAFT_PART_SRC/constraints.txt]
     python-version: python3
     after: [acme]
+    override-pull: |
+        snapcraftctl pull
+        snapcraftctl set-version `cd $SNAPCRAFT_PART_SRC && git describe|sed s/^v//`
   certbot-apache:
     plugin: python
     source: certbot
