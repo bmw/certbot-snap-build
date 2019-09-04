@@ -1,6 +1,6 @@
 language: python
 before_install:
-  - sudo -E apt-get -yq --no-install-suggests --no-install-recommends install nginx-light snapd python3-venv
+  - sudo -E apt-get -yq --no-install-suggests --no-install-recommends install nginx-light python3-venv
   - sudo -E /etc/init.d/nginx stop
 install:
   - sudo /snap/bin/lxd.migrate -yes
