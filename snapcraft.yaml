@@ -63,6 +63,7 @@ parts:
     python-version: python3
     after: [python-augeas, certbot]
     stage-packages: [libaugeas0]
+    python-packages: ['git+https://github.com/certbot/certbot.git']  # workaround for #12
   certbot-nginx:
     plugin: python
     source: certbot
@@ -70,3 +71,4 @@ parts:
     constraints: $SNAPCRAFT_PART_SRC/constraints.txt
     python-version: python3
     after: [certbot]
+    python-packages: ['git+https://github.com/certbot/certbot.git']  # workaround for #12
