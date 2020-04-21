@@ -22,7 +22,7 @@ deploy:
   skip_cleanup: true
 notifications:
   email:
-    recipients: [robie.basak@canonical.com]
+    recipients: [bmw@eff.org]
     on_failure: change
 addons:
   snaps:
