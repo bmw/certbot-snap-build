@@ -49,7 +49,7 @@ parts:
     source-subdir: acme
     constraints: [$SNAPCRAFT_PART_SRC/constraints.txt]
     python-version: python3
-    build-packages: [libffi-dev]
+    build-packages: [libffi-dev, libssl-dev, python3-dev]
   certbot:
     plugin: python
     source: git://github.com/bmw/letsencrypt
