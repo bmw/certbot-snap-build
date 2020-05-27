@@ -21,9 +21,7 @@ deploy:
   channel: edge
   skip_cleanup: true
 notifications:
-  email:
-    recipients: [robie.basak@canonical.com]
-    on_failure: change
+  email: false
 addons:
   snaps:
     - name: snapcraft
