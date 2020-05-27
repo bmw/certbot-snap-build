@@ -74,16 +74,3 @@ parts:
     stage:
       # Prefer cffi
       - -lib/python3.6/site-packages/augeas.py
-  certbot-nginx:
-    plugin: python
-    source: git://github.com/bmw/letsencrypt
-    source-subdir: certbot-nginx
-    constraints: [$SNAPCRAFT_PART_SRC/constraints.txt]
-    python-version: python3
-    # This is the last step, compile pycache now as there should be no conflicts.
-    override-prime: |
-      snapcraftctl prime
-      ./usr/bin/python3 -m compileall -q .
-    # After certbot-apache to not rebuild duplicates (essentially sharing what was already staged,
-    # like zope)
-    after: [certbot-apache]
