@@ -45,13 +45,13 @@ parts:
     build-packages: [libaugeas-dev]
   acme:
     plugin: python
-    source: git://github.com/certbot/certbot
+    source: git://github.com/bmw/letsencrypt
     source-subdir: acme
     constraints: [$SNAPCRAFT_PART_SRC/constraints.txt]
     python-version: python3
   certbot:
     plugin: python
-    source: git://github.com/certbot/certbot
+    source: git://github.com/bmw/letsencrypt
     source-subdir: certbot
     constraints: [$SNAPCRAFT_PART_SRC/constraints.txt]
     python-version: python3
@@ -64,7 +64,7 @@ parts:
       - -usr/lib/python3.6/sitecustomize.py
   certbot-apache:
     plugin: python
-    source: git://github.com/certbot/certbot
+    source: git://github.com/bmw/letsencrypt
     source-subdir: certbot-apache
     constraints: [$SNAPCRAFT_PART_SRC/constraints.txt]
     python-version: python3
@@ -75,7 +75,7 @@ parts:
       - -lib/python3.6/site-packages/augeas.py
   certbot-nginx:
     plugin: python
-    source: git://github.com/certbot/certbot
+    source: git://github.com/bmw/letsencrypt
     source-subdir: certbot-nginx
     constraints: [$SNAPCRAFT_PART_SRC/constraints.txt]
     python-version: python3
